@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"; 
 import axios from "axios";
 
-import ShowCard from './components/ShowCard'
+import {ShowCard, SearchForm} from './components';
 
 import './App.css'
 
@@ -10,23 +10,27 @@ import './App.css'
 const App = () => {
     
     const [showData, setShowData] = useState([]);
+    const [searchString, setSearchString] = useState('Friends');
 
     useEffect(() => {
 
         const searchAPi = async () => {
-            const result = await axios.get('https://api.tvmaze.com/search/shows?q=girls')
+            const result = await axios.get(`https://api.tvmaze.com/search/shows?q=${searchString}`)
             setShowData(result.data)
         }
 
         searchAPi();
 
-    }, [])
+    }, [searchString]);
 
-    // https://api.tvmaze.com/search/shows?q=girls
-
+    function handleSearch(userInput) {
+        setSearchString(userInput)
+        // console.log('Im a function passed as a prop');
+        // console.log(searchString);
+    }
 
     return <>
-        <form id='search-form'></form>
+        <SearchForm handleSearchSubmission={handleSearch}/>
         {showData.map(show => <ShowCard key={show.show.id} data={show.show}/>)}
     </>
 
