@@ -15,8 +15,9 @@ const App = () => {
     useEffect(() => {
 
         const searchAPi = async () => {
-            const result = await axios.get(`https://api.tvmaze.com/search/shows?q=${searchString}`)
-            setShowData(result.data)
+            const result = await axios.get(`https://imdb-api.com/en/API/SearchMovie/k_xo6eyxth/${searchString}`) // k_xo6eyxth
+            console.log('api result: ', result.data.results)
+            setShowData(result.data.results)
         }
 
         searchAPi();
@@ -31,7 +32,7 @@ const App = () => {
 
     return <>
         <SearchForm handleSearchSubmission={handleSearch}/>
-        {showData.map(show => <ShowCard key={show.show.id} data={show.show}/>)}
+        {showData.map(show => <ShowCard key={show.id} data={show}/>)}
     </>
 
 }
