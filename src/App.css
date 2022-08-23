@@ -1,3 +1,19 @@
 .show-card {
     border: 4px dashed #deadaf;
 }
+
+#search-form {
+    width: 30%;
+    margin: 20px auto;
+}
+
+#card-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 100%;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}

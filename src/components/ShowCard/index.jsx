@@ -4,7 +4,7 @@ const ShowCard = ({data}) => {
 
    return <div className="show-card">
             <h2>{data.title}</h2>
-            <img src={data['image']}/>
+            <img className='image' src={data['image']}/>
             <p>{data.description}</p>
             {/* <div>{rating}</div> */}
         </div>

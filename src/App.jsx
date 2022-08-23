@@ -10,7 +10,7 @@ import './App.css'
 const App = () => {
     
     const [showData, setShowData] = useState([]);
-    const [searchString, setSearchString] = useState('Friends');
+    const [searchString, setSearchString] = useState('');
 
     useEffect(() => {
 
@@ -30,9 +30,13 @@ const App = () => {
         // console.log(searchString);
     }
 
+   
+
     return <>
         <SearchForm handleSearchSubmission={handleSearch}/>
-        {showData.map(show => <ShowCard key={show.id} data={show}/>)}
+        <div id="card-container">
+        {showData && showData.map(show => <ShowCard key={show.id} data={show}/>)}
+        </div>
     </>
 
 }

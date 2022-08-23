@@ -11,15 +11,14 @@ const SearchForm = ({handleSearchSubmission}) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        // console.log(inputValue);
         handleSearchSubmission(inputValue)
     }
 
 return <>
 <form id='search-form' onSubmit={handleSubmit}>
-    <label htmlFor="search-box">This is a label</label>
+    <label htmlFor="search-box">Find a movie / TV show</label><br></br>
             <input type='text' name='input-text' onChange={handleInput} value={inputValue} id='search-box' required/>
-            <input type='submit' value='Find shows'/>
+            <input type='submit' value='Go!'/>
         </form>
     </>
 
